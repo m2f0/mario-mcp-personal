@@ -1,0 +1,255 @@
+Contato Mario Mayerle Filho
+Rua Doutor João Vieira Neves, 378 -
+apto 101. Butantã. CEP: 05366-150 Arquiteto de Inteligência Artificial, Python, React, Node.js,
+11941268811 (Mobile) especialista DevOps e IA pelo MIT.
+mamf@nnovup.com.br
+São Paulo, São Paulo, Brasil
+www.linkedin.com/in/
+mariomayerlefilho (LinkedIn) Resumo
+mariomayerle.com/ (Personal)
+Sou Mario Mayerle Filho, profissional com mais de 30 anos de
+Principais competências experiência em Tecnologia da Informação, especializado em
+Inteligência Artificial, SRE/DevOps e transformação digital. Durante
+OpenAI
+minha carreira, atuei em empresas de renome como TodoBPO,
+EIFFEL
+Nexus CONTAX, Telefônica, Claro, Oi, Vivo, Nuance, Caixa Econômica
+Federal, Banco do Pará, Banco Itaú Unibanco, Toyota, Urmet
+Languages Daruma, Nissan LATAM, Sodexo Benefícios, Volkswagen do
+Portuguese (Native or Bilingual) Brasil, Cielo, Indra, Bradesco, Alelo, Santander, entre outras.
+English (Full Professional) Nessas organizações, liderei grandes projetos, desenvolvi soluções
+tecnológicas inovadoras e assumi posições de liderança que
+Certifications resultaram em impactos estratégicos significativos.
+InfoSec Foundation Certificate Já desenvolvi soluções de código aberto que foram convidadas a
+Data8.1x: Foundations of Data serem patenteadas e registradas na Open Invention Network em
+Science: Computational Thinking
+Nova York. Essas soluções reforçam meu compromisso com o
+with Python
+avanço da tecnologia e a inovação.
+Cloud and Devops: Continuous
+Na área de DevOps e SRE, utilizo CI/CD e infraestrutura como
+Transformation
+código (IaC), com ferramentas como Terraform** e CloudFormation.
+Inovação Tecnológica: da Estratégia
+à Aplicação Tenho amplo domínio de Kubernetes, Docker e containers Linux
+e Windows, além de trabalhar com ferramentas de automação
+Publications
+como Ansible, Puppet e Rundeck. Também tenho conhecimentos e
+Curso de Inteligência Artificial experiência de trabalho com Jira, BitBucket, Bamboo, Git, GitHub,
+e Aprendizado de Máquina:
+GitHub Actions, GitLab, Jenkins, Nexus e Sonar Qube.
+Fundamentos e Aplicações
+Em termos de monitoramento e observabilidade, sou altamente
+API ChatGPT: Guia Prático Para
+Integrar A API Do Chatgpt Em Seus proficiente em Grafana, ELK, Splunk, DataDog, Prometheus,
+Projetos
+Nagios/CentreOn e Zabbix. Além disso, gerencio ambientes em
++ de Mil Prompts: O Guia Definitivo
+nuvem como AWS, Azure e Google Cloud, nos quais implementei
+para Dominar o ChatGPT
+arquiteturas complexas e otimizei ambientes de missão crítica.
+Mapas Mentais do ChatGPT:
+Coleção Completa Como desenvolvedor fullstack, trabalho com frontend usando
+Utilizando o ChatGPT Para HTML5, CSS, JavaScript e React.js, e backend com Django e
+Transformar Sua Vida
+Node.js. Também desenvolvo aplicações móveis com Flutter. Minha
+expertise em programação abrange linguagens como Python,
+Patents
+PowerShell, Shell Script, Java e JavaScript.
+LYCHEE PBX
+Page 1 of 7
+JAVALIX Além disso, sou o criador do DataGPT, uma solução de IA
+conversacional para análise de dados que permite que empresas
+façam perguntas diretamente aos seus dados em linguagem
+natural e obtenham respostas instantâneas de nível analítico,
+acompanhadas por visualizações detalhadas. O DataGPT
+transforma a maneira como as empresas lidam com a análise de
+dados, tornando-a acessível e eficiente.
+Atualmente, concentro meus estudos em universidades
+internacionais, com foco em Inteligência Artificial e DevOps, e
+continuo buscando novas formas de utilizar a tecnologia para
+transformar e otimizar processos organizacionais, sempre com foco
+em inovação, eficiência e resultados.
+Experiência
+NNovup
+Arquiteto de Inteligência Artificial, Python, React, Node.js, especialista
+DevOps e IA pelo MIT.
+fevereiro de 2017 - Present (8 anos 2 meses)
+São Paulo, Brasil
+Sou Arquiteto de Inteligência Artificial, especializado em projetar soluções
+escaláveis e eficientes em machine learning, data science e automação,
+garantindo segurança, confiabilidade e alta performance. Tenho expertise na
+integração de IA com infraestrutura de nuvem e microsserviços, otimizando
+pipelines de dados para aumentar a eficiência operacional.
+FourSys: Integrei aplicações com a API da OpenAI. Desenvolvi uma aplicação
+em Node.Js + React + TS para parsear códigos C#, e com embedding e
+vectorstore para automaticamente criar builds e sugerir correções no código.
+INOSX: Criei agentes de IA conversacionais para gerar leads, suporte e
+vendas automatizadas. Criei o SaaS SurveyFlow.ai um SaaS de geração
+através de IA de respostas automatizadas para campanhas de email.
+Nissan: Implementei AWS RDS, S3, DynamoDB, CloudWatch e API Gateway,
+criando uma infraestrutura escalável e resiliente.
+Sodexo: Como DevOps/SRE, transformei a infraestrutura com Terraform,
+GitLab, Jira e Bamboo, acelerando entregas estratégicas.
+Itaú-Unibanco: Liderei a confiabilidade dos sistemas em nuvem com Splunk,
+Grafana e Prometheus, criando SLIs e SLOs.
+Volkswagen: Desenvolvi pipelines de CI/CD com Bamboo e Bitbucket, além
+de deploys em Kubernetes.
+Page 2 of 7
+Natura: Integrei Nexus ao DataHub, otimizando data science, e implementei IA
+no DataDog, aprimorando monitoramento e automação inteligente.
+Criei a dataGPT, primeira IA open-source brasileira focada em análise gráfica,
+e desenvolvi uma automação entre ChatGPT e DataDog para a Thomson &
+Reuters, melhorando respostas a eventos críticos. Como autor de três livros e
+fundador do HUB I.A. Brasil, com 5 mil assinantes, sigo promovendo inovação
+e disseminação de conhecimento em IA, cloud e data science. Comprometido
+com aprendizado contínuo, aplico a filosofia "Ego Dropped", sempre focado
+em resultados e inovação estratégica.
+Nuance Communications
+DevOps Senior Network Operations Engineer
+2017 - 2018 (1 ano)
+São Paulo e Região, Brasil
+• Como DevOps, fui responsável pela criação, documentação, testes,
+implementação, adoção e resultados do framework DevOps. A estrutura foi
+documentada por inteiro. Seu conteúdo inclui Propose / Targets. Ciclo de vida
+de DevOps – CI/CD.
+• Implementei a partir do zero (instalação, compilação, configuração
+e customizações) as tecnologias: Rundeck, Ansible, Puppet, docker,
+kubernetes, Jira, Confluence, Bamboo, Nexus, Testlink, HipTest, ReadyAPI,
+Jenkins, em VSphere (a partir do zero) usando Linux CentOS 7.
+• O software de monitoramento de todo o ambiente foi o Nagios/Centreon e
+ScienceLogic.
+• Também criei imagens docker, criei frontpages e muitos scripts de
+automação, para operações e desenvolvedores, e rotinas de automação
+usando Pyhton, Shell Script, PowerShell, Java, JavaScript, JQL (Jira Query
+Language), JSON, Jquery, XML, YML, Restapi, HTML e CSS.
+• Também trabalhei com bancos de dados como InnoDB, TokuDB, MySQL,
+Percona e MariaDB, e banco de dados NoSQL. Realizei hardening de bancos
+e servidores, criação de tabelas, views, store procedures, e manipulei dados
+através de querys.
+Vertude
+DevOps Administrator de Sistemas
+2016 - 2017 (1 ano)
+São Paulo e Região, Brasil
+• Responsável pela gestão de supervisão das tarefas de automação de
+escritório como arquitetura de desktop e suporte, implementação de rede e
+gerenciamento de informações. Também responsável pela infra-estrutura de
+Page 3 of 7
+tecnologia, inclusão de tarefas estratégicas e táticas e políticas corporativas.
+Responsável pela tecnologia e infra-estrutura de rede garantindo a excelência
+no planejamento, controle, organização, monitoramento e avaliação.
+• Gerenciamento, criação, suporte, controle e manutenção das rotinas de
+backup do Veeam Center Backup e fitas, com backups mensais full e diários
+incrementais, além do desenvolvimento, configuração, customização e
+manutenção de máquinas virtuais no VMSphere. Aproximadamente 30
+máquinas virtuais servindo diversos fins, desde AD (Windows 2012), GitServer
+(LAMP), servidor de hospedagem (LAMP), Firewall (TMG), TFTP(WINDOWS
+Server), FileServer (Samba), IPpbx (Elastix), servidor de testes (LAMP),OCS
+Inventory (OCS Server), Oracle Enterprise (Oracle) , e servidor de aplicações
+Web (Windows 2012 – IIS). Gerenciamento, configuração e desenvolvimento
+de scripts e rotinas de monitoramento do ZabbixServer (servidor físico de
+monitoramento).
+• Gerenciamento, controle, hardening, configuração e customização dos
+servidores que atuam como discadores (Linux e asterisk) ativos e receptivos
+representando 90% do faturamento da empresa.
+• Desenvolvimento de scripts em shell script/python para instalação de
+aplicações, configurações e backup automático de ambientes.
+• Desenvolvimento de sites para clientes em HTML5, CSS, PHP, JavaScript,
+Boostrap em CMS Wordpress.
+• Gerenciamento dos fornecedores da TI. Gerenciamento dos custos.
+Negociação de débitos. Solicitação de prazos de pagamentos e descontos.
+SENAI/SC - Serviço Nacional de Aprendizagem Industrial
+1 ano 11 meses
+Pesquisador e desenvolvedor
+janeiro de 2014 - julho de 2015 (1 ano 7 meses)
+Florianópolis Area, Brazil
+Pesquisador e desenvolvedor de software de controle remoto de um
+amortecedor para uma grande indústria nacional. O desenvolvimento do
+software exigiu conhecimentos e experiências em planejamento, análise e
+especificação de requisitos, projeto, implementação e testes, reuniões de
+equipe, marketing, apresentação de status do projeto, relacionamento com
+o cliente e controle de custos, programação em C, processadores ARM,
+programação em arduíno, motores de passo, schematics, Atmel Studio,
+componentes eletrônicos.
+Professor de Ciência da Computação
+setembro de 2013 - julho de 2014 (11 meses)
+Page 4 of 7
+Professor de Ciência da Computação das disciplinas de Arquitetura de
+softwares I e II, Engenharia de software I e II e Java para web e Java para
+desktops (incluindo Android Studio e App Inventor).
+Total Quality Systems Ltda
+Analista Sênior de Implantação e Desenvolvimento
+novembro de 2011 - fevereiro de 2013 (1 ano 4 meses)
+São Paulo Area, Brazil
+Criação e desenvolvimento do PBX IP TQS (CentOS e elastix). Criação e
+administração de servidor Xen de virtualização para máquinas virtuais usadas
+como laboratório. Desenvolvedor de um gravador de chamadas passivo
+para call center (CentOS, asterisk totalmente customizado - patente TQS, se
+tornou produto da empresa, EBS Khomp e software de consulta proprietário
+TQS - patente TQS, desenvolvimento da equipe .Net TQS). Implantação de
+servidor de monitamento Zabbix para monitorar soluções em clientes TQS
+antecipando chamadas para o suporte técnico. Consultor de pré venda técnica
+e de stakeholders. Consultor técnico linux, asterisk e de gerenciamento de
+projetos.
+4Linux
+Consultor e Instrutor
+janeiro de 2008 - dezembro de 2011 (4 anos)
+São Paulo Area, Brazil
+Mantenedor e Instrutor dos cursos:
+442 – Construindo um PABX IP na prática com Asterisk; Neste curso o
+aluno aprende como instalar o Asterisk no Debian e criar um PBX IP.
+(Criação de vídeo de divulgação do curso junto com o depto. de Marketing,
+desenvolvimento de apostilas de conteúdo didático e de exercícios, slides
+shows para acompanhamentos nas aulas, criação de CD distribuído durante o
+curso, + de 100 alunos formados);
+443 – Explore o máximo do seu PABX Asterisk; Neste curso o aluno aprende
+funções avançadas do Asterisk e de redes. (Criação de vídeo de divulgação
+do curso junto com o depto. de Markeing, desenvolvimento de apostilas de
+conteúdo didático e de exercícios, slides shows para acompanhamentos nas
+aulas, criação de CD distribuído durante o curso, criação de CD distribuído
+durante o curso, + de 100 alunos formados); Criação do curso de Kamailio
+(OpenSER) para a PRODEPA (Empresa de processamento de dados do
+Estado do Pará);
+Page 5 of 7
+Consultor em Projetos Asterisk: Criação de Layout técnicos de projetos;
+geração de proposta técnica de soluções; descrição dos serviços; proposta
+de projeto; reuniões técnicas e de pré-venda técnica com o cliente;
+desenvolvimento e execução de projetos de implantação, integração e
+customização de servidores VoIP e de interfaces (php) de acesso aos
+servidores (firewalls, bilhetagem, tíckets, relatórios, mais de 20 projetos
+realizados); Desenvolvimento de códigos em AEL.
+Tellfree Brasil Telefonia IP S.A.
+Senior Analyst and Developer of Implementation
+janeiro de 2011 - setembro de 2011 (9 meses)
+São Paulo, Brasil
+• Configuração e implementação de IP fones e gateways IP.
+• Relatórios de fraudes telefônicas contendo: identificação do cliente vítima
+da fraude, IP de saída (IP de senha fraca), rastreamento do fraudador,
+geolocalização do fraudador (localização do fraudador), identificação
+do agente fraudador (cracker, bot ou empresa), encaminhamento das
+informações para o diretor técnico, relatório de recomendações de segurança
+para o cliente).
+• Desenvolvimento e gerenciamento de servidores media gateways.
+• Desenvolvimento de scripts em ShellScript
+• Suporte nível 3 (especialista) para pops e clientes Tellfree. Criação de layout
+de projetos VoIP.
+• Lider de projetos técnicos em campo. Líder de projetos em pré-venda,
+suporte e pós-venda.
+• Customizações das configurações do asterisk e de equipamentos IP de
+telefonia
+Formação acadêmica
+MIT Sloan School of Management
+Specialization, Inovação Tecnológica: da Estratégia à Aplicação · (setembro
+de 2023 - novembro de 2023)
+MIT Professional Education
+Specialization, Inteligência Artificial · (setembro de 2023 - dezembro de 2023)
+MIT Professional Education
+Specialization, Tecnologia da Informação · (2020 - 2021)
+Page 6 of 7
+University of the People
+Master's degree, Information Technology · (janeiro de 2022 - dezembro de
+2025)
+HarvardX
+Professional in Becoming an Entrepreneur, Business
+Administration · (dezembro de 2021 - maio de 2022)
+Page 7 of 7

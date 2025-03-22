@@ -1,7 +1,104 @@
 {
-  "profile": {
-    "name": "Mario",
-    "title": "Especialista em IA",
-    "location": "Brasil"
+    "profile": {
+      "name": "Mario Mayerle Filho",
+      "title": "Arquiteto de Inteligência Artificial, DevOps e IA pelo MIT",
+      "location": "São Paulo, Brasil",
+      "languages": [
+        "Portuguese (Native or Bilingual)",
+        "English (Full Professional)"
+      ],
+      "certifications": [
+        "InfoSec Foundation Certificate",
+        "Data8.1x: Foundations of Data Science: Computational Thinking with Python",
+        "Cloud and Devops: Continuous Transformation",
+        "Inovação Tecnológica: da Estratégia à Aplicação"
+      ],
+      "publications": [
+        "Curso de Inteligência Artificial e Aprendizado de Máquina: Fundamentos e Aplicações",
+        "API ChatGPT: Guia Prático Para Integrar A API Do ChatGPT Em Seus Projetos",
+        "+ de Mil Prompts: O Guia Definitivo para Dominar o ChatGPT",
+        "Mapas Mentais do ChatGPT: Coleção Completa",
+        "Utilizando o ChatGPT Para Transformar Sua Vida"
+      ],
+      "patents": [
+        "LYCHEE PBX"
+      ],
+      "summary": "Profissional com mais de 30 anos de experiência em Tecnologia da Informação, especializado em Inteligência Artificial, SRE/DevOps e transformação digital. Atuei em empresas como TodoBPO, Telefônica, Claro, Oi, Vivo, Nuance, Itaú Unibanco, Toyota, Nissan LATAM, Sodexo, Volkswagen, entre outras. Lidero projetos de IA, DevOps e Cloud Computing com foco em inovação e resultados estratégicos.",
+      "experience": [
+        {
+          "company": "NNovup",
+          "role": "Arquiteto de Inteligência Artificial, Python, React, Node.js",
+          "period": "fevereiro de 2017 - Presente",
+          "location": "São Paulo, Brasil",
+          "highlights": [
+            "Integração de IA com infraestrutura de nuvem e microsserviços.",
+            "Projetos em empresas como FourSys, INOSX, Nissan, Sodexo, Itaú-Unibanco, Volkswagen, Natura."
+          ]
+        },
+        {
+          "company": "Nuance Communications",
+          "role": "DevOps Senior Network Operations Engineer",
+          "period": "2017 - 2018",
+          "location": "São Paulo, Brasil"
+        },
+        {
+          "company": "Vertude",
+          "role": "DevOps Administrator de Sistemas",
+          "period": "2016 - 2017",
+          "location": "São Paulo, Brasil"
+        },
+        {
+          "company": "SENAI/SC",
+          "role": "Pesquisador e desenvolvedor / Professor de Ciência da Computação",
+          "period": "2013 - 2015",
+          "location": "Florianópolis, Brasil"
+        },
+        {
+          "company": "Total Quality Systems Ltda",
+          "role": "Analista Sênior de Implantação e Desenvolvimento",
+          "period": "2011 - 2013",
+          "location": "São Paulo, Brasil"
+        },
+        {
+          "company": "4Linux",
+          "role": "Consultor e Instrutor",
+          "period": "2008 - 2011",
+          "location": "São Paulo, Brasil"
+        },
+        {
+          "company": "Tellfree Brasil Telefonia IP S.A.",
+          "role": "Senior Analyst and Developer of Implementation",
+          "period": "2011",
+          "location": "São Paulo, Brasil"
+        }
+      ],
+      "education": [
+        {
+          "institution": "MIT Sloan School of Management",
+          "degree": "Specialization, Inovação Tecnológica: da Estratégia à Aplicação",
+          "period": "2023"
+        },
+        {
+          "institution": "MIT Professional Education",
+          "degree": "Specialization, Inteligência Artificial",
+          "period": "2023"
+        },
+        {
+          "institution": "MIT Professional Education",
+          "degree": "Specialization, Tecnologia da Informação",
+          "period": "2020 - 2021"
+        },
+        {
+          "institution": "University of the People",
+          "degree": "Master's degree, Information Technology",
+          "period": "2022 - 2025"
+        },
+        {
+          "institution": "HarvardX",
+          "degree": "Professional in Becoming an Entrepreneur, Business Administration",
+          "period": "2021 - 2022"
+        }
+      ]
+    }
   }
-}
+  
