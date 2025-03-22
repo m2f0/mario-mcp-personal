@@ -1,32 +1,33 @@
-from mcp_sdk.server import MCPServer
+import os
+from flask import Flask, jsonify, request
 import json
 
-class PersonalMCP(MCPServer):
-    def __init__(self):
-        super().__init__(name="MarioPersonalMCP")
-        # Carregar recursos
-        with open("resources/linkedin.json") as f:
-            self.linkedin = json.load(f)
-        with open("resources/github.json") as f:
-            self.github = json.load(f)
-        with open("resources/blogposts.json") as f:
-            self.blog = json.load(f)
+app = Flask(__name__)
 
-    # Expondo recursos
-    def get_resources(self):
-        return {
-            "linkedin": self.linkedin,
-            "github": self.github,
-            "blogposts": self.blog
-        }
+base_path = os.path.dirname(os.path.abspath(__file__))
 
-    # Ferramenta: buscar projeto específico
-    def get_project_details(self, repo_name):
-        for repo in self.github["repositories"]:
-            if repo["name"] == repo_name:
-                return repo
-        return {"error": "Projeto não encontrado"}
+with open(os.path.join(base_path, "resources", "linkedin.json")) as f:
+    linkedin = json.load(f)
+with open(os.path.join(base_path, "resources", "github.json")) as f:
+    github = json.load(f)
+with open(os.path.join(base_path, "resources", "blogposts.json")) as f:
+    blog = json.load(f)
+
+@app.route('/resources', methods=['GET'])
+def list_resources():
+    return jsonify({
+        "linkedin": linkedin,
+        "github": github,
+        "blogposts": blog
+    })
+
+@app.route('/tools/get_project_details', methods=['GET'])
+def get_project_details():
+    repo_name = request.args.get('repo_name')
+    for repo in github["repositories"]:
+        if repo["name"].lower() == repo_name.lower():
+            return jsonify(repo)
+    return jsonify({"error": "Projeto não encontrado"}), 404
 
 if __name__ == "__main__":
-    server = PersonalMCP()
-    server.run(host="0.0.0.0", port=8000)
+    app.run(host="0.0.0.0", port=8000)
