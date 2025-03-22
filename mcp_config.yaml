@@ -1,0 +1,7 @@
+server_name: MarioPersonalMCP
+resources:
+  - linkedin
+  - github
+  - blogposts
+tools:
+  - get_project_details
