@@ -3,6 +3,12 @@
 Bem-vindo ao **Mario Personal MCP (Model Context Protocol)**!
 Aqui você encontrará um servidor padronizado, exposto publicamente, contendo meus dados profissionais abertos — ideal para integração com aplicações, automações e LLMs que desejem consumir essas informações de forma estruturada.
 
+Agora disponível em:
+
+```
+https://mcp.mariomayerle.com
+```
+
 ---
 
 ## 🚀 O que esta API oferece?
@@ -26,6 +32,12 @@ A API expõe **endpoints RESTful simples, em formato JSON**, projetados para con
 - **Aplicações web, bots e integrações.**
 - **Pessoas interessadas no perfil público.**
 
+### 🔗 URL Base de Consumo
+
+```
+https://mcp.mariomayerle.com
+```
+
 ---
 
 ## 🌐 Endpoints Disponíveis
@@ -37,7 +49,7 @@ A API expõe **endpoints RESTful simples, em formato JSON**, projetados para con
 **Exemplo:**
 
 ```bash
-GET https://seu-servidor.com/resources
+GET https://mcp.mariomayerle.com/resources
 ```
 
 **Resposta:**
@@ -82,7 +94,7 @@ GET https://seu-servidor.com/resources
 **Exemplo:**
 
 ```bash
-GET https://seu-servidor.com/tools/get_project_details?repo_name=mario-mcp-personal
+GET https://mcp.mariomayerle.com/tools/get_project_details?repo_name=mario-mcp-personal
 ```
 
 **Resposta:**
@@ -98,13 +110,18 @@ GET https://seu-servidor.com/tools/get_project_details?repo_name=mario-mcp-perso
 
 ## 🤖 Integração com LLMs
 
-1. Realize consultas HTTP GET simples.
-2. Receba respostas em JSON.
-3. Ideal para integração via plugins (ChatGPT Plugins, Claude Tools, etc.).
+1. Realize consultas HTTP GET simples para:
 
-**Exemplo de instrução para um LLM:**
+```
+https://mcp.mariomayerle.com
+```
 
-> "Acesse `https://seu-servidor.com/resources` e retorne os repositórios do Mario."
+2. Receba respostas JSON estruturadas.
+3. Ideal para integração com plugins (ChatGPT Plugins, Claude Tools, etc.).
+
+**Exemplo para um LLM:**
+
+> "Acesse `https://mcp.mariomayerle.com/resources` e retorne os repositórios do Mario."
 
 ---
 
@@ -115,7 +132,7 @@ GET https://seu-servidor.com/tools/get_project_details?repo_name=mario-mcp-perso
 ```python
 import requests
 
-response = requests.get("https://seu-servidor.com/resources")
+response = requests.get("https://mcp.mariomayerle.com/resources")
 data = response.json()
 print(data["github"]["repositories"])
 ```
@@ -123,7 +140,7 @@ print(data["github"]["repositories"])
 ### JavaScript:
 
 ```javascript
-fetch('https://seu-servidor.com/resources')
+fetch('https://mcp.mariomayerle.com/resources')
   .then(response => response.json())
   .then(data => console.log(data.github.repositories));
 ```
@@ -155,6 +172,12 @@ Requisições ilimitadas por enquanto, desde que usadas com boas práticas.
 Welcome to **Mario Personal MCP (Model Context Protocol)**!
 This is a public server exposing my open professional data — ideal for integration with applications, automations, and LLMs seeking structured access.
 
+Now available at:
+
+```
+https://mcp.mariomayerle.com
+```
+
 ---
 
 ## 🚀 What does this API provide?
@@ -178,6 +201,12 @@ The API exposes **simple RESTful endpoints in JSON format**, designed for:
 - **Web apps, bots, integrations.**
 - **Anyone interested in public data.**
 
+### 🔗 Base URL for Consumption
+
+```
+https://mcp.mariomayerle.com
+```
+
 ---
 
 ## 🌐 Available Endpoints
@@ -189,7 +218,7 @@ The API exposes **simple RESTful endpoints in JSON format**, designed for:
 **Example:**
 
 ```bash
-GET https://your-server.com/resources
+GET https://mcp.mariomayerle.com/resources
 ```
 
 **Response:**
@@ -234,7 +263,7 @@ GET https://your-server.com/resources
 **Example:**
 
 ```bash
-GET https://your-server.com/tools/get_project_details?repo_name=mario-mcp-personal
+GET https://mcp.mariomayerle.com/tools/get_project_details?repo_name=mario-mcp-personal
 ```
 
 **Response:**
@@ -250,13 +279,18 @@ GET https://your-server.com/tools/get_project_details?repo_name=mario-mcp-person
 
 ## 🤖 LLM Integration
 
-1. Perform HTTP GET requests.
+1. Perform HTTP GET requests to:
+
+```
+https://mcp.mariomayerle.com
+```
+
 2. Receive JSON responses.
 3. Ideal for integration with plugins (ChatGPT Plugins, Claude Tools, etc.).
 
 **Example instruction for an LLM:**
 
-> "Access `https://your-server.com/resources` and return Mario's repositories."
+> "Access `https://mcp.mariomayerle.com/resources` and return Mario's repositories."
 
 ---
 
@@ -267,7 +301,7 @@ GET https://your-server.com/tools/get_project_details?repo_name=mario-mcp-person
 ```python
 import requests
 
-response = requests.get("https://your-server.com/resources")
+response = requests.get("https://mcp.mariomayerle.com/resources")
 data = response.json()
 print(data["github"]["repositories"])
 ```
@@ -275,7 +309,7 @@ print(data["github"]["repositories"])
 ### JavaScript:
 
 ```javascript
-fetch('https://your-server.com/resources')
+fetch('https://mcp.mariomayerle.com/resources')
   .then(response => response.json())
   .then(data => console.log(data.github.repositories));
 ```
