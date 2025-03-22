@@ -1,0 +1,27 @@
+openapi: 3.0.1
+info:
+  title: Mario Mayerle MCP API
+  description: API pública para acessar perfil, repositórios e publicações de Mario Mayerle.
+  version: 1.0.0
+servers:
+  - url: https://mcp.mariomayerle.com
+paths:
+  /resources:
+    get:
+      summary: Retorna dados públicos
+      responses:
+        '200':
+          description: Dados públicos retornados com sucesso
+  /tools/get_project_details:
+    get:
+      summary: Detalhes de um repositório específico
+      parameters:
+        - name: repo_name
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Nome do repositório para buscar
+      responses:
+        '200':
+          description: Detalhes retornados

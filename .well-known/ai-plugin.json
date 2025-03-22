@@ -1,0 +1,18 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "Mario Mayerle MCP Public API",
+    "name_for_model": "mario_mcp",
+    "description_for_human": "Consulta dados públicos do Mario Mayerle (LinkedIn, GitHub, blogposts).",
+    "description_for_model": "Retorna dados públicos do Mario Mayerle para perfis e projetos.",
+    "auth": {
+      "type": "none"
+    },
+    "api": {
+      "type": "openapi",
+      "url": "https://mcp.mariomayerle.com/openapi.yaml"
+    },
+    "logo_url": "https://mcp.mariomayerle.com/logo.png",
+    "contact_email": "contato@mariomayerle.com",
+    "legal_info_url": "https://mcp.mariomayerle.com/legal"
+  }
+  
