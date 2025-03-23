@@ -107,14 +107,14 @@ Para integração com LLMs como ChatGPT ou Claude:
   "schema_version": "v1",
   "name_for_human": "Mario MCP API",
   "name_for_model": "mario_mcp",
-  "description_for_human": "Consulta dados públicos do Mario Mayerle (LinkedIn, GitHub, Blog).",
-  "description_for_model": "Permite acessar informações públicas do perfil do Mario Mayerle, incluindo LinkedIn, repositórios GitHub e publicações.",
+  "description_for_human": "Consulta dados públicos do Mario Mayerle (LinkedIn, GitHub, Blogposts).",
+  "description_for_model": "Permite acessar informações públicas do perfil de Mario Mayerle, incluindo LinkedIn, repositórios GitHub e publicações.",
   "auth": {
     "type": "none"
   },
   "api": {
     "type": "openapi",
-    "url": "https://mcp.mariomayerle.com/openapi.yaml"
+    "url": "https://mcp.mariomayerle.com/.well-known/openapi.yaml"
   },
   "logo_url": "https://mcp.mariomayerle.com/logo.png",
   "contact_email": "contato@mariomayerle.com",
@@ -163,6 +163,14 @@ Requisições ilimitadas por enquanto, desde que usadas com boas práticas.
 - Integração com APIs de Medium, Twitter e LinkedIn.
 - Novas ferramentas para busca personalizada.
 - Integração nativa com LLMs.
+
+---
+
+## 📄 Política de Privacidade e Uso
+
+Leia os termos completos de privacidade e responsabilidade de uso aqui:
+
+[Política de Privacidade e Uso](https://mcp.mariomayerle.com/legal)
 
 ---
 
@@ -280,7 +288,7 @@ Example instruction:
   },
   "api": {
     "type": "openapi",
-    "url": "https://mcp.mariomayerle.com/openapi.yaml"
+    "url": "https://mcp.mariomayerle.com/.well-known/openapi.yaml"
   },
   "logo_url": "https://mcp.mariomayerle.com/logo.png",
   "contact_email": "contato@mariomayerle.com",
@@ -332,6 +340,8 @@ Unlimited requests for now, assuming responsible use.
 
 ---
 
-## 📄 License
+## 📄 Privacy Policy and Usage Terms
 
-MIT License © Mario
+Read the full privacy and usage terms here:
+
+[Privacy Policy and Terms](https://mcp.mariom
