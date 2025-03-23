@@ -21,6 +21,18 @@ def list_resources():
         "blogposts": blog
     })
 
+@app.route('/resources/linkedin', methods=['GET'])
+def get_linkedin():
+    return jsonify(linkedin)
+
+@app.route('/resources/github', methods=['GET'])
+def get_github():
+    return jsonify(github)
+
+@app.route('/resources/blogposts', methods=['GET'])
+def get_blogposts():
+    return jsonify(blog)
+
 @app.route('/tools/get_project_details', methods=['GET'])
 def get_project_details():
     repo_name = request.args.get('repo_name')
