@@ -4,7 +4,8 @@ import os
 
 # Configurações
 RSS_FEED_URL = "https://hubiabrasil.substack.com/feed"
-OUTPUT_PATH = os.path.join("resources", "blogposts.json")
+BASE_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+OUTPUT_PATH = os.path.join(BASE_PATH, "resources", "blogposts.json")
 
 # Extrair dados do feed
 print("🔄 Buscando posts do Substack...")
