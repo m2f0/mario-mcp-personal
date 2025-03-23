@@ -13,13 +13,13 @@ https://mcp.mariomayerle.com
 
 ## 🚀 O que esta API oferece?
 
-- **📄 Perfil Profissional Público**
-  Informações como nome, cargo e localização (via LinkedIn).
+- **📄 Perfil Profissional Público**  
+  Informações completas como nome, cargo, localização, experiências, certificações, publicações, idiomas e formação acadêmica (via LinkedIn).
   
-- **📂 Repositórios Públicos**
+- **📂 Repositórios Públicos**  
   Lista atualizada dos meus projetos no GitHub.
 
-- **📝 Publicações e Artigos**
+- **📝 Publicações e Artigos**  
   Posts e materiais relevantes do meu blog.
 
 ---
@@ -46,40 +46,38 @@ https://mcp.mariomayerle.com
 
 **Retorna todos os dados públicos.**
 
-**Exemplo:**
-
 ```bash
 GET https://mcp.mariomayerle.com/resources
 ```
 
-**Resposta:**
+---
 
-```json
-{
-  "linkedin": {
-    "profile": {
-      "name": "Mario",
-      "title": "Especialista em IA",
-      "location": "Brasil"
-    }
-  },
-  "github": {
-    "repositories": [
-      {
-        "name": "mario-mcp-personal",
-        "url": "https://github.com/seu-usuario/mario-mcp-personal"
-      }
-    ]
-  },
-  "blogposts": {
-    "posts": [
-      {
-        "title": "Introdução ao MCP",
-        "url": "https://seublog.com/mcp-intro"
-      }
-    ]
-  }
-}
+### ➔ `GET /resources/linkedin`
+
+**Retorna somente dados do LinkedIn.**
+
+```bash
+GET https://mcp.mariomayerle.com/resources/linkedin
+```
+
+---
+
+### ➔ `GET /resources/github`
+
+**Retorna somente dados do GitHub.**
+
+```bash
+GET https://mcp.mariomayerle.com/resources/github
+```
+
+---
+
+### ➔ `GET /resources/blogposts`
+
+**Retorna somente publicações do blog.**
+
+```bash
+GET https://mcp.mariomayerle.com/resources/blogposts
 ```
 
 ---
@@ -88,40 +86,41 @@ GET https://mcp.mariomayerle.com/resources
 
 **Consulta detalhada de um repositório específico.**
 
-**Parâmetro:**
-- `repo_name` → Nome do repositório (exato).
-
-**Exemplo:**
-
 ```bash
 GET https://mcp.mariomayerle.com/tools/get_project_details?repo_name=mario-mcp-personal
-```
-
-**Resposta:**
-
-```json
-{
-  "name": "mario-mcp-personal",
-  "url": "https://github.com/seu-usuario/mario-mcp-personal"
-}
 ```
 
 ---
 
 ## 🤖 Integração com LLMs
 
-1. Realize consultas HTTP GET simples para:
+Para integração com LLMs como ChatGPT ou Claude:
 
+### Exemplo de instrução:
+
+> "Use o endpoint `https://mcp.mariomayerle.com/resources/linkedin` e retorne todas as certificações listadas no perfil do Mario."
+
+### Exemplo Plugin (ChatGPT Manifest)
+
+```json
+{
+  "schema_version": "v1",
+  "name_for_human": "Mario MCP API",
+  "name_for_model": "mario_mcp",
+  "description_for_human": "Consulta dados públicos do Mario Mayerle (LinkedIn, GitHub, Blog).",
+  "description_for_model": "Permite acessar informações públicas do perfil do Mario Mayerle, incluindo LinkedIn, repositórios GitHub e publicações.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://mcp.mariomayerle.com/openapi.yaml"
+  },
+  "logo_url": "https://mcp.mariomayerle.com/logo.png",
+  "contact_email": "contato@mariomayerle.com",
+  "legal_info_url": "https://mcp.mariomayerle.com/legal"
+}
 ```
-https://mcp.mariomayerle.com
-```
-
-2. Receba respostas JSON estruturadas.
-3. Ideal para integração com plugins (ChatGPT Plugins, Claude Tools, etc.).
-
-**Exemplo para um LLM:**
-
-> "Acesse `https://mcp.mariomayerle.com/resources` e retorne os repositórios do Mario."
 
 ---
 
@@ -132,22 +131,22 @@ https://mcp.mariomayerle.com
 ```python
 import requests
 
-response = requests.get("https://mcp.mariomayerle.com/resources")
+response = requests.get("https://mcp.mariomayerle.com/resources/linkedin")
 data = response.json()
-print(data["github"]["repositories"])
+print(data["profile"]["certifications"])
 ```
 
 ### JavaScript:
 
 ```javascript
-fetch('https://mcp.mariomayerle.com/resources')
+fetch('https://mcp.mariomayerle.com/resources/linkedin')
   .then(response => response.json())
-  .then(data => console.log(data.github.repositories));
+  .then(data => console.log(data.profile.certifications));
 ```
 
 ---
 
-## 🔐 Autorizacão
+## 🔐 Autorização
 
 Esta API é **pública e não requer autenticação**.
 
@@ -163,11 +162,11 @@ Requisições ilimitadas por enquanto, desde que usadas com boas práticas.
 
 - Integração com APIs de Medium, Twitter e LinkedIn.
 - Novas ferramentas para busca personalizada.
-- Integração com LLMs nativamente.
+- Integração nativa com LLMs.
 
 ---
 
-## 🌐 Mario Personal MCP API (English)
+# 🌐 Mario Personal MCP API (English)
 
 Welcome to **Mario Personal MCP (Model Context Protocol)**!
 This is a public server exposing my open professional data — ideal for integration with applications, automations, and LLMs seeking structured access.
@@ -182,13 +181,13 @@ https://mcp.mariomayerle.com
 
 ## 🚀 What does this API provide?
 
-- **📄 Public Professional Profile**
-  Information like name, job title, and location (via LinkedIn).
+- **📄 Public Professional Profile**  
+  Complete info such as name, job title, location, experience, certifications, publications, languages and education (via LinkedIn).
   
-- **📂 Public GitHub Repositories**
+- **📂 Public GitHub Repositories**  
   Updated list of public projects.
 
-- **📝 Blogposts and Articles**
+- **📝 Blogposts and Articles**  
   Relevant content from my blog.
 
 ---
@@ -213,84 +212,81 @@ https://mcp.mariomayerle.com
 
 ### ➔ `GET /resources`
 
-**Returns all public data.**
-
-**Example:**
+Returns all public data.
 
 ```bash
 GET https://mcp.mariomayerle.com/resources
 ```
 
-**Response:**
+---
 
-```json
-{
-  "linkedin": {
-    "profile": {
-      "name": "Mario",
-      "title": "Especialista em IA",
-      "location": "Brasil"
-    }
-  },
-  "github": {
-    "repositories": [
-      {
-        "name": "mario-mcp-personal",
-        "url": "https://github.com/seu-usuario/mario-mcp-personal"
-      }
-    ]
-  },
-  "blogposts": {
-    "posts": [
-      {
-        "title": "Introdução ao MCP",
-        "url": "https://seublog.com/mcp-intro"
-      }
-    ]
-  }
-}
+### ➔ `GET /resources/linkedin`
+
+Returns only LinkedIn profile data.
+
+```bash
+GET https://mcp.mariomayerle.com/resources/linkedin
+```
+
+---
+
+### ➔ `GET /resources/github`
+
+Returns only GitHub repositories.
+
+```bash
+GET https://mcp.mariomayerle.com/resources/github
+```
+
+---
+
+### ➔ `GET /resources/blogposts`
+
+Returns only blog publications.
+
+```bash
+GET https://mcp.mariomayerle.com/resources/blogposts
 ```
 
 ---
 
 ### ➔ `GET /tools/get_project_details?repo_name={name}`
 
-**Query details of a specific repository.**
-
-**Parameter:**
-- `repo_name` → Exact repository name.
-
-**Example:**
+Query details of a specific repository.
 
 ```bash
 GET https://mcp.mariomayerle.com/tools/get_project_details?repo_name=mario-mcp-personal
-```
-
-**Response:**
-
-```json
-{
-  "name": "mario-mcp-personal",
-  "url": "https://github.com/seu-usuario/mario-mcp-personal"
-}
 ```
 
 ---
 
 ## 🤖 LLM Integration
 
-1. Perform HTTP GET requests to:
+Example instruction:
 
+> "Use `https://mcp.mariomayerle.com/resources/linkedin` endpoint and return all certifications listed in Mario's profile."
+
+### Example Plugin (ChatGPT Manifest)
+
+```json
+{
+  "schema_version": "v1",
+  "name_for_human": "Mario MCP API",
+  "name_for_model": "mario_mcp",
+  "description_for_human": "Fetch Mario Mayerle's public profile data (LinkedIn, GitHub, Blog).",
+  "description_for_model": "Allows access to Mario Mayerle's public professional profile, including LinkedIn, GitHub repositories and blog publications.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://mcp.mariomayerle.com/openapi.yaml"
+  },
+  "logo_url": "https://mcp.mariomayerle.com/logo.png",
+  "contact_email": "contato@mariomayerle.com",
+  "legal_info_url": "https://mcp.mariomayerle.com/legal"
+}
 ```
-https://mcp.mariomayerle.com
-```
-
-2. Receive JSON responses.
-3. Ideal for integration with plugins (ChatGPT Plugins, Claude Tools, etc.).
-
-**Example instruction for an LLM:**
-
-> "Access `https://mcp.mariomayerle.com/resources` and return Mario's repositories."
 
 ---
 
@@ -301,17 +297,17 @@ https://mcp.mariomayerle.com
 ```python
 import requests
 
-response = requests.get("https://mcp.mariomayerle.com/resources")
+response = requests.get("https://mcp.mariomayerle.com/resources/linkedin")
 data = response.json()
-print(data["github"]["repositories"])
+print(data["profile"]["certifications"])
 ```
 
 ### JavaScript:
 
 ```javascript
-fetch('https://mcp.mariomayerle.com/resources')
+fetch('https://mcp.mariomayerle.com/resources/linkedin')
   .then(response => response.json())
-  .then(data => console.log(data.github.repositories));
+  .then(data => console.log(data.profile.certifications));
 ```
 
 ---
@@ -339,4 +335,3 @@ Unlimited requests for now, assuming responsible use.
 ## 📄 License
 
 MIT License © Mario
-
