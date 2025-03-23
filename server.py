@@ -41,5 +41,17 @@ def get_project_details():
             return jsonify(repo)
     return jsonify({"error": "Projeto não encontrado"}), 404
 
+@app.route('/resources/blogposts_simple', methods=['GET'])
+def list_blogposts_simple():
+    # Retorna só título e link para evitar dados pesados
+    simple_posts = [
+        {
+            "title": post["title"],
+            "url": post["url"]
+        }
+        for post in blog["posts"][:5]  # Limita aos 5 mais recentes
+    ]
+    return jsonify({"posts": simple_posts})
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8000)

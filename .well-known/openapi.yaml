@@ -29,11 +29,18 @@ paths:
           description: GitHub repositories retrieved successfully
   /resources/blogposts:
     get:
-      summary: Retrieve blog posts
+      summary: Retrieve full blog posts
       operationId: getBlogPosts
       responses:
         '200':
-          description: Blog posts retrieved successfully
+          description: Full blog posts retrieved successfully
+  /resources/blogposts_simple:
+    get:
+      summary: Retrieve simplified list of latest blog posts
+      operationId: getSimpleBlogPosts
+      responses:
+        '200':
+          description: Simplified blog posts retrieved successfully
   /tools/get_project_details:
     get:
       summary: Retrieve details of a specific GitHub repository
