@@ -2,40 +2,41 @@ openapi: 3.1.0
 info:
   title: Mario Personal MCP API
   version: 1.0.0
+  description: Public API exposing Mario Mayerle's LinkedIn profile, GitHub repositories, and blog posts.
 servers:
   - url: https://mcp.mariomayerle.com
 paths:
   /resources:
     get:
-      summary: Retrieve all public data
+      summary: Retrieve all public data (LinkedIn, GitHub, Blogposts)
       operationId: getAllResources
       responses:
         '200':
-          description: Public data retrieved
+          description: Public data successfully retrieved
   /resources/linkedin:
     get:
       summary: Retrieve LinkedIn profile data
-      operationId: getLinkedInData
+      operationId: getLinkedInProfile
       responses:
         '200':
-          description: LinkedIn data retrieved
+          description: LinkedIn profile data retrieved successfully
   /resources/github:
     get:
       summary: Retrieve GitHub repositories
-      operationId: getGitHubRepos
+      operationId: getGitHubRepositories
       responses:
         '200':
-          description: GitHub repositories retrieved
+          description: GitHub repositories retrieved successfully
   /resources/blogposts:
     get:
       summary: Retrieve blog posts
       operationId: getBlogPosts
       responses:
         '200':
-          description: Blog posts retrieved
+          description: Blog posts retrieved successfully
   /tools/get_project_details:
     get:
-      summary: Retrieve details of specific repo
+      summary: Retrieve details of a specific GitHub repository
       operationId: getProjectDetails
       parameters:
         - in: query
@@ -43,9 +44,9 @@ paths:
           required: true
           schema:
             type: string
-          description: Name of the repository
+          description: Exact name of the repository to query
       responses:
         '200':
-          description: Project details retrieved
+          description: Repository details retrieved successfully
         '404':
-          description: Project not found
+          description: Repository not found
