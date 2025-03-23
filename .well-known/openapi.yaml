@@ -1,47 +1,51 @@
-openapi: 3.0.1
+openapi: 3.1.0
 info:
   title: Mario Personal MCP API
-  description: Public API exposing Mario Mayerle's LinkedIn profile, GitHub repositories, and blog posts.
   version: 1.0.0
 servers:
   - url: https://mcp.mariomayerle.com
 paths:
   /resources:
     get:
-      summary: Retrieve all public data (LinkedIn, GitHub, Blogposts).
+      summary: Retrieve all public data
+      operationId: getAllResources
       responses:
         '200':
-          description: Public data successfully retrieved
+          description: Public data retrieved
   /resources/linkedin:
     get:
-      summary: Retrieve only LinkedIn profile data.
+      summary: Retrieve LinkedIn profile data
+      operationId: getLinkedInData
       responses:
         '200':
-          description: LinkedIn profile data retrieved successfully
+          description: LinkedIn data retrieved
   /resources/github:
     get:
-      summary: Retrieve only GitHub repositories.
+      summary: Retrieve GitHub repositories
+      operationId: getGitHubRepos
       responses:
         '200':
-          description: GitHub repositories retrieved successfully
+          description: GitHub repositories retrieved
   /resources/blogposts:
     get:
-      summary: Retrieve only blog publications.
+      summary: Retrieve blog posts
+      operationId: getBlogPosts
       responses:
         '200':
-          description: Blog posts retrieved successfully
+          description: Blog posts retrieved
   /tools/get_project_details:
     get:
-      summary: Retrieve detailed information about a specific GitHub repository.
+      summary: Retrieve details of specific repo
+      operationId: getProjectDetails
       parameters:
         - in: query
           name: repo_name
           required: true
           schema:
             type: string
-          description: Exact name of the repository to query
+          description: Name of the repository
       responses:
         '200':
-          description: Repository details retrieved successfully
+          description: Project details retrieved
         '404':
-          description: Repository not found
+          description: Project not found
