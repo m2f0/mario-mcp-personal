@@ -1,27 +1,47 @@
 openapi: 3.0.1
 info:
-  title: Mario Mayerle MCP API
-  description: API pública para acessar perfil, repositórios e publicações de Mario Mayerle.
+  title: Mario Personal MCP API
+  description: Public API exposing Mario Mayerle's LinkedIn profile, GitHub repositories, and blog posts.
   version: 1.0.0
 servers:
   - url: https://mcp.mariomayerle.com
 paths:
   /resources:
     get:
-      summary: Retorna dados públicos
+      summary: Retrieve all public data (LinkedIn, GitHub, Blogposts).
       responses:
         '200':
-          description: Dados públicos retornados com sucesso
+          description: Public data successfully retrieved
+  /resources/linkedin:
+    get:
+      summary: Retrieve only LinkedIn profile data.
+      responses:
+        '200':
+          description: LinkedIn profile data retrieved successfully
+  /resources/github:
+    get:
+      summary: Retrieve only GitHub repositories.
+      responses:
+        '200':
+          description: GitHub repositories retrieved successfully
+  /resources/blogposts:
+    get:
+      summary: Retrieve only blog publications.
+      responses:
+        '200':
+          description: Blog posts retrieved successfully
   /tools/get_project_details:
     get:
-      summary: Detalhes de um repositório específico
+      summary: Retrieve detailed information about a specific GitHub repository.
       parameters:
-        - name: repo_name
-          in: query
+        - in: query
+          name: repo_name
           required: true
           schema:
             type: string
-          description: Nome do repositório para buscar
+          description: Exact name of the repository to query
       responses:
         '200':
-          description: Detalhes retornados
+          description: Repository details retrieved successfully
+        '404':
+          description: Repository not found
