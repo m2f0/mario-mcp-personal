@@ -1,12 +1,14 @@
 fetch("https://mcp.mariomayerle.com/resources/linkedin")
   .then(res => res.json())
   .then(data => {
+    const profile = data.profile;
     const container = document.getElementById("profile");
+
     container.innerHTML = `
-      <p><strong>${data.name}</strong></p>
-      <p>${data.title}</p>
-      <p>${data.location}</p>
-      <a href="${data.url}" target="_blank">Ver perfil</a>
+      <p><strong>${profile.name}</strong></p>
+      <p>${profile.title}</p>
+      <p>${profile.location}</p>
+      <a href="https://www.linkedin.com/in/mariomayerlefilho/" target="_blank">Ver perfil</a>
     `;
   })
   .catch(err => {
