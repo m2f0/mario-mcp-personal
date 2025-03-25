@@ -1,4 +1,4 @@
-fetch("https://mcp.mariomayerle.com/api/linkedin")
+fetch("https://mcp.mariomayerle.com/resources/linkedin")
   .then(res => res.json())
   .then(data => {
     const container = document.getElementById("profile");
