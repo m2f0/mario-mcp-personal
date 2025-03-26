@@ -9,7 +9,8 @@ import time
 import requests
 from datetime import datetime
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='', static_folder='static')
+
 CORS(app)
 
 START_TIME = time.time()
