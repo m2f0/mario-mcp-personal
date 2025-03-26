@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Status MCP</title>
+  <script>
+    async function fetchStatus() {
+      const res = await fetch('/status');
+      const data = await res.json();
+
+      const statusDiv = document.getElementById('status');
+      statusDiv.innerHTML = '';
+
+      for (const key in data) {
+        const item = document.createElement('div');
+        item.className = 'status-item';
+        const statusIcon = data[key] === 'online' ? '✅' : (data[key] === 'offline' ? '❌' : '📊');
+        item.innerHTML = `<strong>${key}</strong>: ${statusIcon} ${data[key]}`;
+        statusDiv.appendChild(item);
+      }
+    }
+
+    window.onload = fetchStatus;
+    setInterval(fetchStatus, 10000); // Atualiza a cada 10 segundos
+  </script>
+  <style>
+    body {
+      background-color: #0e0e0e;
+      color: #f0f0f0;
+      font-family: sans-serif;
+      padding: 2rem;
+    }
+    h1 {
+      color: #00ffcc;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .status-item {
+      background: #1e1e1e;
+      padding: 1rem;
+      margin-bottom: 0.5rem;
+      border-radius: 8px;
+      box-shadow: 0 0 4px #00ffcc33;
+    }
+  </style>
+</head>
+<body>
+  <h1>Status do MCP</h1>
+  <div id="status">Carregando...</div>
+</body>
+</html>
