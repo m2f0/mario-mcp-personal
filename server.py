@@ -2,7 +2,7 @@ import os
 from flask import Flask, jsonify, request
 import json
 from flask_cors import CORS
-
+from flask import render_template
 import psutil
 import platform
 import time
@@ -30,6 +30,10 @@ def list_resources():
         "github": github,
         "blogposts": blog
     })
+
+@app.route("/")
+def status_page():
+    return render_template("status.html")
 
 @app.route('/resources/linkedin', methods=['GET'])
 def get_linkedin():
