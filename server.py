@@ -41,6 +41,10 @@ swagger_template = {
 
 swagger = Swagger(app, config=swagger_config, template=swagger_template)
 
+@app.route("/docs")
+def custom_swagger_ui():
+    return swagger._swagger_ui_for('/swagger.json')
+
 START_TIME = time.time()
 
 base_path = os.path.dirname(os.path.abspath(__file__))
