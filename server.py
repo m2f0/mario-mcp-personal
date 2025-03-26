@@ -8,9 +8,11 @@ import platform
 import time
 import requests
 from datetime import datetime
+from flasgger import Swagger
 
 app = Flask(__name__)
 CORS(app)
+swagger = Swagger(app)
 
 START_TIME = time.time()
 
@@ -25,6 +27,15 @@ with open(os.path.join(base_path, "resources", "blogposts.json")) as f:
 
 @app.route('/resources', methods=['GET'])
 def list_resources():
+    """
+    Lista todos os dados de LinkedIn, GitHub e blog em um único JSON.
+    ---
+    tags:
+      - Recursos
+    responses:
+      200:
+        description: JSON com todos os recursos carregados
+    """
     return jsonify({
         "linkedin": linkedin,
         "github": github,
@@ -33,22 +44,67 @@ def list_resources():
 
 @app.route("/")
 def status_page():
+    """
+    Página de status com visualização HTML.
+    ---
+    tags:
+      - Interface
+    responses:
+      200:
+        description: Página HTML com status da aplicação
+    """
     return render_template("status.html")
 
 @app.route('/resources/linkedin', methods=['GET'])
 def get_linkedin():
+    """
+    Retorna os dados completos do LinkedIn.
+    ---
+    tags:
+      - Recursos
+    responses:
+      200:
+        description: Dados do LinkedIn
+    """
     return jsonify(linkedin)
 
 @app.route('/resources/github', methods=['GET'])
 def get_github():
+    """
+    Retorna os dados dos repositórios GitHub.
+    ---
+    tags:
+      - Recursos
+    responses:
+      200:
+        description: Dados dos repositórios GitHub
+    """
     return jsonify(github)
 
 @app.route('/resources/blogposts', methods=['GET'])
 def get_blogposts():
+    """
+    Retorna os posts completos do blog.
+    ---
+    tags:
+      - Recursos
+    responses:
+      200:
+        description: Lista completa dos posts do blog
+    """
     return jsonify(blog)
 
 @app.route('/resources/blogposts_simple', methods=['GET'])
 def list_blogposts_simple():
+    """
+    Retorna os 5 posts mais recentes do blog com título e URL.
+    ---
+    tags:
+      - Recursos
+    responses:
+      200:
+        description: Lista simplificada de posts recentes
+    """
     simple_posts = [
         {
             "title": post["title"],
@@ -58,7 +114,33 @@ def list_blogposts_simple():
     ]
     return jsonify({"posts": simple_posts})
 
+@app.route('/tools/get_project_details', methods=['GET'])
+def get_project_details():
+    """
+    Retorna detalhes de um repositório pelo nome.
+    ---
+    tags:
+      - GitHub
+    parameters:
+      - name: repo_name
+        in: query
+        type: string
+        required: true
+        description: Nome do repositório para busca
+    responses:
+      200:
+        description: Detalhes do repositório encontrado
+      404:
+        description: Projeto não encontrado
+    """
+    repo_name = request.args.get('repo_name')
+    for repo in github["repositories"]:
+        if repo["name"].lower() == repo_name.lower():
+            return jsonify(repo)
+    return jsonify({"error": "Projeto não encontrado"}), 404
+
 # --- NOVO ENDPOINT DE STATUS ---
+
 def check_service_status(url):
     try:
         response = requests.get(url, timeout=5)
@@ -68,15 +150,17 @@ def check_service_status(url):
 
 @app.route('/status', methods=['GET'])
 def get_status():
+    """
+    Retorna o status do sistema, consumo de recursos e disponibilidade dos serviços.
+    ---
+    tags:
+      - Status
+    responses:
+      200:
+        description: JSON com métricas de status do MCP
+    """
     uptime_seconds = int(time.time() - START_TIME)
     uptime_str = time.strftime("%H:%M:%S", time.gmtime(uptime_seconds))
-
-    def check_service_status(url):
-        try:
-            response = requests.get(url, timeout=5)
-            return "online" if response.status_code == 200 else "offline"
-        except:
-            return "offline"
 
     base_url = "https://mcp.mariomayerle.com"
 
@@ -95,8 +179,6 @@ def get_status():
         "host_os": platform.system(),
         "last_update": datetime.utcnow().isoformat() + "Z"
     }
-
-    return jsonify(status_info)
 
     return jsonify(status_info)
 # --- FIM DO BLOCO DE STATUS ---
