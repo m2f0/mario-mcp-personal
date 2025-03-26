@@ -71,17 +71,32 @@ def get_status():
     uptime_seconds = int(time.time() - START_TIME)
     uptime_str = time.strftime("%H:%M:%S", time.gmtime(uptime_seconds))
 
+    def check_service_status(url):
+        try:
+            response = requests.get(url, timeout=5)
+            return "online" if response.status_code == 200 else "offline"
+        except:
+            return "offline"
+
+    base_url = "https://mcp.mariomayerle.com"
+
     status_info = {
         "mcp_backend": "online",
-        "frontend_ui": check_service_status("https://mcp.mariomayerle.com"),
-        "linkedin_scraper": check_service_status("https://mcp.mariomayerle.com/resources/linkedin"),
+        "frontend_ui": check_service_status(base_url),
+        "linkedin_scraper": check_service_status(f"{base_url}/resources/linkedin"),
         "blog_feed": check_service_status("https://hubiabrasil.com.br"),
+        "api_resources": check_service_status(f"{base_url}/resources"),
+        "api_github": check_service_status(f"{base_url}/resources/github"),
+        "api_blogposts": check_service_status(f"{base_url}/resources/blogposts"),
+        "api_project_details_example": check_service_status(f"{base_url}/tools/get_project_details?repo_name=mcp"),
         "cpu_usage": f"{psutil.cpu_percent()}%",
         "ram_usage": f"{psutil.virtual_memory().percent}%",
         "uptime": uptime_str,
         "host_os": platform.system(),
         "last_update": datetime.utcnow().isoformat() + "Z"
     }
+
+    return jsonify(status_info)
 
     return jsonify(status_info)
 # --- FIM DO BLOCO DE STATUS ---
