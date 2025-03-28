@@ -52,6 +52,73 @@ with open(os.path.join(base_path, "resources", "github.json")) as f:
 with open(os.path.join(base_path, "resources", "blogposts.json")) as f:
     blog = json.load(f)
 
+
+@app.route("/agent", methods=["POST"])
+def ask_agent():
+    """
+    Endpoint que pergunta ao agente GPT baseado nos dados do MCP.
+    ---
+    tags:
+      - Agente GPT
+    parameters:
+      - name: question
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            question:
+              type: string
+              example: "Quais são os principais projetos do Mario?"
+    responses:
+      200:
+        description: Resposta gerada pelo agente GPT
+    """
+    data = request.get_json()
+    question = data.get("question", "")
+
+    if not question:
+        return jsonify({"error": "Campo 'question' é obrigatório"}), 400
+
+    # Monta o contexto com base nos dados locais
+    context = {
+        "linkedin": linkedin,
+        "github": github,
+        "blogposts": blog
+    }
+
+    prompt = f"""
+Você é um agente que responde perguntas com base nos dados públicos do Mario Mayerle. Aqui estão os dados disponíveis:
+
+LinkedIn:
+{json.dumps(context['linkedin'], indent=2)}
+
+GitHub:
+{json.dumps(context['github'], indent=2)}
+
+Blogposts:
+{json.dumps(context['blogposts'], indent=2)}
+
+Pergunta do usuário: {question}
+Responda de forma clara e objetiva.
+    """
+
+    try:
+        response = openai.ChatCompletion.create(
+            model="gpt-4",
+            messages=[
+                {"role": "system", "content": "Você é um assistente pessoal especializado em dados públicos do Mario Mayerle."},
+                {"role": "user", "content": prompt}
+            ],
+            temperature=0.7
+        )
+
+        answer = response.choices[0].message.content.strip()
+        return jsonify({"answer": answer})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    
+
 @app.route('/resources', methods=['GET'])
 def list_resources():
     """
