@@ -55,7 +55,7 @@ with open(os.path.join(base_path, "resources", "github.json")) as f:
 with open(os.path.join(base_path, "resources", "blogposts.json")) as f:
     blog = json.load(f)
 
-@app.route("/livros/query", methods=["POST"])
+@app.route("/resources/livros", methods=["POST"])
 def livros_query():
     data = request.get_json()
     pergunta = data.get("query", "").strip()
