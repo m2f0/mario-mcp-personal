@@ -9,6 +9,7 @@ import time
 import requests
 from datetime import datetime
 from flasgger import Swagger
+from engine.book_qa import query_books
 
 app = Flask(__name__)
 CORS(app)
@@ -51,6 +52,17 @@ with open(os.path.join(base_path, "resources", "github.json")) as f:
     github = json.load(f)
 with open(os.path.join(base_path, "resources", "blogposts.json")) as f:
     blog = json.load(f)
+
+@app.route("/livros/query", methods=["POST"])
+def livros_query():
+    data = request.get_json()
+    pergunta = data.get("query", "").strip()
+
+    if not pergunta:
+        return jsonify({"erro": "Você deve fornecer uma pergunta no campo 'query'."}), 400
+
+    resposta = query_books(pergunta)
+    return jsonify({"resposta": resposta})
 
 
 @app.route("/agent", methods=["POST"])
