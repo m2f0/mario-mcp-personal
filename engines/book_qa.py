@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-VECTORSTORE_ID = "vs_67eac21578188191a120f872d1bd648c"
+VECTORSTORE_ID = "vs_67eac6ed32648191baa934730017735c"
 
 def query_books(question, model="gpt-4-1106-preview", temperature=0.3):
     try:
