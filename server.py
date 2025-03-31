@@ -1,4 +1,5 @@
 import os
+import sys
 from flask import Flask, jsonify, request
 import json
 from flask_cors import CORS
@@ -10,6 +11,7 @@ import requests
 from datetime import datetime
 from flasgger import Swagger
 from engine.book_qa import query_books
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 app = Flask(__name__)
 CORS(app)
