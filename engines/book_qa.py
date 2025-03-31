@@ -30,7 +30,7 @@ def query_books(question, model="gpt-4-1106-preview", temperature=0.3):
                     "type": "file_search"
                 }
             ],
-            tool_choice="file_search",
+            tool_choice={"type": "file_search"},
             file_search={"vector_store_ids": [VECTORSTORE_ID]},
             max_tokens=1024  # Limite seguro
         )
