@@ -6,6 +6,23 @@ info:
 servers:
   - url: https://mcp.mariomayerle.com
 paths:
+  /resources/livros:
+    post:
+      summary: Query insights from Mario's books
+      operationId: queryBooks
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                query:
+                  type: string
+                  description: User's question about the book content
+      responses:
+        '200':
+          description: Response retrieved from Mario's book collection
   /resources:
     get:
       summary: Retrieve all public data (LinkedIn, GitHub, Blogposts)
