@@ -17,7 +17,7 @@ def query_books(question, model="gpt-4-1106-preview", temperature=0.3):
             messages=[
                 {
                     "role": "system",
-                    "content": "Você é um assistente treinado para responder perguntas com base no conteúdo de livros autorais fornecidos em PDF."
+                    "content": "Você é um assistente treinado para responder perguntas com base no conteúdo de livros autorais fornecidos em PDF. Foque em respostas objetivas, concisas e com no máximo 3 parágrafos. Resuma o conteúdo, se necessário."
                 },
                 {
                     "role": "user",
@@ -32,6 +32,7 @@ def query_books(question, model="gpt-4-1106-preview", temperature=0.3):
             ],
             tool_choice="file_search",
             file_search={"vector_store_ids": [VECTORSTORE_ID]},
+            max_tokens=1024  # Limite seguro
         )
 
         return response.choices[0].message.content.strip()
