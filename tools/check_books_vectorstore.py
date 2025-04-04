@@ -10,10 +10,15 @@ if not OPENAI_API_KEY:
     print("❌ OPENAI_API_KEY não encontrada.")
     exit(1)
 
+HEADERS = {
+    "Authorization": f"Bearer {OPENAI_API_KEY}",
+    "OpenAI-Beta": "assistants=v2"
+}
+
 # 1. Obter o assistente
 res = requests.get(
     f"https://api.openai.com/v1/assistants/{ASSISTANT_ID}",
-    headers={"Authorization": f"Bearer {OPENAI_API_KEY}"}
+    headers=HEADERS
 )
 
 if res.status_code != 200:
@@ -32,7 +37,7 @@ vectorstore_id = vs_ids[0]
 # 2. Listar arquivos do vectorstore
 res = requests.get(
     f"https://api.openai.com/v1/vector_stores/{vectorstore_id}/files",
-    headers={"Authorization": f"Bearer {OPENAI_API_KEY}"}
+    headers=HEADERS
 )
 
 if res.status_code != 200:
