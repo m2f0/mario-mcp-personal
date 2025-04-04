@@ -1,6 +1,6 @@
 # 🌐 Mario Personal MCP API
 
-Bem-vindo ao **Mario Personal MCP (Model Context Protocol)**!
+Bem-vindo ao **Mario Personal MCP (Model Context Protocol)**!  
 Aqui você encontrará um servidor padronizado, exposto publicamente, contendo meus dados profissionais abertos — ideal para integração com aplicações, automações e LLMs que desejem consumir essas informações de forma estruturada.
 
 Agora disponível em:
@@ -14,13 +14,13 @@ https://mcp.mariomayerle.com
 ## 🚀 O que esta API oferece?
 
 - **📄 Perfil Profissional Público**  
-  Informações completas como nome, cargo, localização, experiências, certificações, publicações, idiomas e formação acadêmica (via LinkedIn).
-  
+  Informações como nome, cargo, localização, experiências, certificações, publicações, idiomas e formação acadêmica (via LinkedIn).
+
 - **📂 Repositórios Públicos**  
   Lista atualizada dos meus projetos no GitHub.
 
 - **📝 Publicações e Artigos**  
-  Posts e materiais relevantes do meu blog.
+  Conteúdos extraídos do meu blog no HUB IA Brasil.
 
 ---
 
@@ -28,11 +28,11 @@ https://mcp.mariomayerle.com
 
 A API expõe **endpoints RESTful simples, em formato JSON**, projetados para consumo direto por:
 
-- **LLMs (Claude, GPT, Llama, etc.)** que desejem buscar informações atualizadas.
+- **LLMs (Claude, GPT, Llama, etc.)**  
 - **Aplicações web, bots e integrações.**
-- **Pessoas interessadas no perfil público.**
+- **Usuários interessados no meu perfil público.**
 
-### 🔗 URL Base de Consumo
+### 🔗 URL Base
 
 ```
 https://mcp.mariomayerle.com
@@ -44,47 +44,39 @@ https://mcp.mariomayerle.com
 
 ### ➔ `GET /resources`
 
-**Retorna todos os dados públicos.**
+Retorna todos os dados públicos.
 
 ```bash
 GET https://mcp.mariomayerle.com/resources
 ```
 
----
-
 ### ➔ `GET /resources/linkedin`
 
-**Retorna somente dados do LinkedIn.**
+Retorna somente os dados do LinkedIn.
 
 ```bash
 GET https://mcp.mariomayerle.com/resources/linkedin
 ```
 
----
-
 ### ➔ `GET /resources/github`
 
-**Retorna somente dados do GitHub.**
+Retorna somente os repositórios públicos do GitHub.
 
 ```bash
 GET https://mcp.mariomayerle.com/resources/github
 ```
 
----
-
 ### ➔ `GET /resources/blogposts`
 
-**Retorna somente publicações do blog.**
+Retorna somente as publicações do blog.
 
 ```bash
 GET https://mcp.mariomayerle.com/resources/blogposts
 ```
 
----
-
 ### ➔ `GET /tools/get_project_details?repo_name={nome}`
 
-**Consulta detalhada de um repositório específico.**
+Consulta detalhes de um repositório específico.
 
 ```bash
 GET https://mcp.mariomayerle.com/tools/get_project_details?repo_name=mario-mcp-personal
@@ -92,15 +84,13 @@ GET https://mcp.mariomayerle.com/tools/get_project_details?repo_name=mario-mcp-p
 
 ---
 
-## 🤖 Integração com LLMs
+## 🧐 Integração com LLMs
 
-Para integração com LLMs como ChatGPT ou Claude:
+### Exemplo de uso:
 
-### Exemplo de instrução:
+> "Use o endpoint `https://mcp.mariomayerle.com/resources/linkedin` para retornar todas as certificações listadas no perfil de Mario Mayerle."
 
-> "Use o endpoint `https://mcp.mariomayerle.com/resources/linkedin` e retorne todas as certificações listadas no perfil do Mario."
-
-### Exemplo Plugin (ChatGPT Manifest)
+### Exemplo de Manifesto (ChatGPT Plugin):
 
 ```json
 {
@@ -148,36 +138,34 @@ fetch('https://mcp.mariomayerle.com/resources/linkedin')
 
 ## 🔐 Autorização
 
-Esta API é **pública e não requer autenticação**.
+Esta API é **pública** e **não requer autenticação**.
 
 ---
 
 ## 📢 Limites
 
-Requisições ilimitadas por enquanto, desde que usadas com boas práticas.
+Sem limites atuais, contanto que o uso seja feito com responsabilidade.
 
 ---
 
-## 📅 Roadmap Futuro
+## 🗕️ Roadmap Futuro
 
-- Integração com APIs de Medium, Twitter e LinkedIn.
-- Novas ferramentas para busca personalizada.
-- Integração nativa com LLMs.
+- Integração com Medium, Twitter e APIs externas.
+- Busca personalizada por tópicos (em construção).
+- Endpoint para resumo automático de perfil (LLM Ready).
 
 ---
 
 ## 📄 Política de Privacidade e Uso
 
-Leia os termos completos de privacidade e responsabilidade de uso aqui:
-
-[Política de Privacidade e Uso](https://mcp.mariomayerle.com/legal)
+[Leia aqui](https://mcp.mariomayerle.com/legal) os termos de privacidade e responsabilidade sobre o uso público da API.
 
 ---
 
-# 🌐 Mario Personal MCP API (English)
+# 🌐 Mario Personal MCP API
 
-Welcome to **Mario Personal MCP (Model Context Protocol)**!
-This is a public server exposing my open professional data — ideal for integration with applications, automations, and LLMs seeking structured access.
+Welcome to **Mario Personal MCP (Model Context Protocol)**!  
+This is a standardized public server exposing my open professional data — ideal for integration with applications, automations, and LLMs seeking structured information.
 
 Now available at:
 
@@ -187,28 +175,28 @@ https://mcp.mariomayerle.com
 
 ---
 
-## 🚀 What does this API provide?
+## 🚀 What does this API offer?
 
 - **📄 Public Professional Profile**  
-  Complete info such as name, job title, location, experience, certifications, publications, languages and education (via LinkedIn).
-  
+  Information such as name, job title, location, experiences, certifications, publications, languages, and education (via LinkedIn).
+
 - **📂 Public GitHub Repositories**  
-  Updated list of public projects.
+  Updated list of my GitHub projects.
 
 - **📝 Blogposts and Articles**  
-  Relevant content from my blog.
+  Content extracted from my blog on HUB IA Brasil.
 
 ---
 
-## 📁 How to Consume
+## 📁 How to use this API?
 
-The API exposes **simple RESTful endpoints in JSON format**, designed for:
+The API exposes **simple RESTful endpoints in JSON format**, designed for direct consumption by:
 
-- **LLMs (Claude, GPT, Llama, etc.)** seeking updated info.
-- **Web apps, bots, integrations.**
-- **Anyone interested in public data.**
+- **LLMs (Claude, GPT, Llama, etc.)**  
+- **Web apps, bots, and integrations.**
+- **Users interested in my public profile.**
 
-### 🔗 Base URL for Consumption
+### 🔗 Base URL
 
 ```
 https://mcp.mariomayerle.com
@@ -226,27 +214,21 @@ Returns all public data.
 GET https://mcp.mariomayerle.com/resources
 ```
 
----
-
 ### ➔ `GET /resources/linkedin`
 
-Returns only LinkedIn profile data.
+Returns only LinkedIn data.
 
 ```bash
 GET https://mcp.mariomayerle.com/resources/linkedin
 ```
 
----
-
 ### ➔ `GET /resources/github`
 
-Returns only GitHub repositories.
+Returns only public GitHub repositories.
 
 ```bash
 GET https://mcp.mariomayerle.com/resources/github
 ```
-
----
 
 ### ➔ `GET /resources/blogposts`
 
@@ -256,11 +238,9 @@ Returns only blog publications.
 GET https://mcp.mariomayerle.com/resources/blogposts
 ```
 
----
-
 ### ➔ `GET /tools/get_project_details?repo_name={name}`
 
-Query details of a specific repository.
+Query detailed information about a specific repository.
 
 ```bash
 GET https://mcp.mariomayerle.com/tools/get_project_details?repo_name=mario-mcp-personal
@@ -268,21 +248,21 @@ GET https://mcp.mariomayerle.com/tools/get_project_details?repo_name=mario-mcp-p
 
 ---
 
-## 🤖 LLM Integration
+## 🧐 LLM Integration
 
-Example instruction:
+### Example usage:
 
-> "Use `https://mcp.mariomayerle.com/resources/linkedin` endpoint and return all certifications listed in Mario's profile."
+> "Use the endpoint `https://mcp.mariomayerle.com/resources/linkedin` to return all certifications listed in Mario Mayerle's profile."
 
-### Example Plugin (ChatGPT Manifest)
+### Plugin Example (ChatGPT Manifest):
 
 ```json
 {
   "schema_version": "v1",
   "name_for_human": "Mario MCP API",
   "name_for_model": "mario_mcp",
-  "description_for_human": "Fetch Mario Mayerle's public profile data (LinkedIn, GitHub, Blog).",
-  "description_for_model": "Allows access to Mario Mayerle's public professional profile, including LinkedIn, GitHub repositories and blog publications.",
+  "description_for_human": "Fetch public profile data from Mario Mayerle (LinkedIn, GitHub, Blogposts).",
+  "description_for_model": "Allows access to Mario Mayerle's public profile, including LinkedIn, GitHub repositories, and blog posts.",
   "auth": {
     "type": "none"
   },
@@ -298,7 +278,7 @@ Example instruction:
 
 ---
 
-## 📊 Consumption Examples
+## 📊 Usage Examples
 
 ### Python:
 
@@ -322,26 +302,27 @@ fetch('https://mcp.mariomayerle.com/resources/linkedin')
 
 ## 🔐 Authorization
 
-This API is **public and requires no authentication**.
+This API is **public** and **requires no authentication**.
 
 ---
 
-## 📢 Limits
+## 📢 Rate Limits
 
-Unlimited requests for now, assuming responsible use.
-
----
-
-## 📅 Future Roadmap
-
-- Integration with Medium, Twitter, LinkedIn APIs.
-- Custom search tools.
-- Native LLM integrations.
+No rate limits currently, as long as usage is responsible.
 
 ---
 
-## 📄 Privacy Policy and Usage Terms
+## 🗕️ Future Roadmap
 
-Read the full privacy and usage terms here:
+- Integration with Medium, Twitter, and external APIs.
+- Topic-based custom search (under development).
+- Endpoint for automatic profile summarization (LLM Ready).
 
-[Privacy Policy and Terms](https://mcp.mariom
+---
+
+## 📄 Privacy Policy and Terms
+
+[Click here](https://mcp.mariomayerle.com/legal) to read the privacy and usage terms for this public API.
+
+---
+
