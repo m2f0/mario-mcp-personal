@@ -1,38 +1,33 @@
 import os
 from dotenv import load_dotenv
-import openai
+from openai import OpenAI
 
-# Carregar variáveis do .env
+# Carrega .env e inicializa client
 load_dotenv()
-
-# Pegar chave da API e ID do assistente
-openai.api_key = os.getenv("OPENAI_API_KEY")
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 ASSISTANT_ID = os.getenv("ASSISTANT_ID", "asst_zgKsZ5XOt8y8XVVsxIaCdNWH")
 
-if not openai.api_key:
-    print("❌ OPENAI_API_KEY não encontrada no .env")
-    exit(1)
+# Pega o assistente
+assistant = client.beta.assistants.retrieve(ASSISTANT_ID)
 
-# Obter dados do assistente
-assistant = openai.beta.assistants.retrieve(ASSISTANT_ID)
-
-# Acessar vector store via atributo (forma correta na versão 1.70+)
+# Pega vectorstore vinculado ao assistente
 vectorstore_ids = assistant.tool_resources.file_search.vector_store_ids
 
 if not vectorstore_ids:
-    print("❌ Nenhum vector store associado ao assistente.")
+    print("❌ Nenhum vector store encontrado no assistente.")
     exit(1)
 
 vectorstore_id = vectorstore_ids[0]
 
-# Listar arquivos do vector store
-files = openai.beta.vector_stores.files.list(vector_store_id=vectorstore_id)
+# Lista arquivos do vectorstore
+files = client.beta.vector_stores.files.list(vector_store_id=vectorstore_id)
 
 print(f"\n📌 Assistant: {assistant.name}")
 print(f"🧠 Vector Store ID: {vectorstore_id}")
-print(f"📚 Arquivos encontrados ({len(files.data)}):\n")
+print(f"📚 Arquivos conectados ({len(files.data)}):\n")
 
 for i, file in enumerate(files.data, 1):
-    print(f"{i}. {file.filename} (ID: {file.id})")
+    status = file.status
+    print(f"{i}. {file.filename} (ID: {file.id}) - Status: {status}")
 
 print("\n✅ Verificação concluída.")
