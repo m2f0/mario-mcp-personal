@@ -1,33 +1,51 @@
 import os
+import requests
 from dotenv import load_dotenv
-from openai import OpenAI
 
-# Carrega .env e inicializa client
 load_dotenv()
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-ASSISTANT_ID = os.getenv("ASSISTANT_ID", "asst_zgKsZ5XOt8y8XVVsxIaCdNWH")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+ASSISTANT_ID = os.getenv("ASSISTANT_ID")
 
-# Pega o assistente
-assistant = client.beta.assistants.retrieve(ASSISTANT_ID)
-
-# Pega vectorstore vinculado ao assistente
-vectorstore_ids = assistant.tool_resources.file_search.vector_store_ids
-
-if not vectorstore_ids:
-    print("❌ Nenhum vector store encontrado no assistente.")
+if not OPENAI_API_KEY:
+    print("❌ OPENAI_API_KEY não encontrada.")
     exit(1)
 
-vectorstore_id = vectorstore_ids[0]
+# 1. Obter o assistente
+res = requests.get(
+    f"https://api.openai.com/v1/assistants/{ASSISTANT_ID}",
+    headers={"Authorization": f"Bearer {OPENAI_API_KEY}"}
+)
 
-# Lista arquivos do vectorstore
-files = client.beta.vector_stores.files.list(vector_store_id=vectorstore_id)
+if res.status_code != 200:
+    print("❌ Erro ao buscar assistente:", res.text)
+    exit(1)
 
-print(f"\n📌 Assistant: {assistant.name}")
+assistant = res.json()
+vs_ids = assistant["tool_resources"]["file_search"]["vector_store_ids"]
+
+if not vs_ids:
+    print("❌ Nenhum vector store vinculado.")
+    exit(1)
+
+vectorstore_id = vs_ids[0]
+
+# 2. Listar arquivos do vectorstore
+res = requests.get(
+    f"https://api.openai.com/v1/vector_stores/{vectorstore_id}/files",
+    headers={"Authorization": f"Bearer {OPENAI_API_KEY}"}
+)
+
+if res.status_code != 200:
+    print("❌ Erro ao buscar arquivos:", res.text)
+    exit(1)
+
+files = res.json().get("data", [])
+
+print(f"\n📌 Assistant: {assistant['name']}")
 print(f"🧠 Vector Store ID: {vectorstore_id}")
-print(f"📚 Arquivos conectados ({len(files.data)}):\n")
+print(f"📚 Arquivos encontrados ({len(files)}):\n")
 
-for i, file in enumerate(files.data, 1):
-    status = file.status
-    print(f"{i}. {file.filename} (ID: {file.id}) - Status: {status}")
+for i, f in enumerate(files, 1):
+    print(f"{i}. {f['filename']} (ID: {f['id']}) - Status: {f.get('status', 'desconhecido')}")
 
 print("\n✅ Verificação concluída.")
