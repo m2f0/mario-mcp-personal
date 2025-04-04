@@ -5,7 +5,7 @@ import openai
 # Carregar variáveis do .env
 load_dotenv()
 
-# Pegar variáveis do ambiente
+# Pegar chave da API e ID do assistente
 openai.api_key = os.getenv("OPENAI_API_KEY")
 ASSISTANT_ID = os.getenv("ASSISTANT_ID", "asst_zgKsZ5XOt8y8XVVsxIaCdNWH")
 
@@ -16,7 +16,8 @@ if not openai.api_key:
 # Obter dados do assistente
 assistant = openai.beta.assistants.retrieve(ASSISTANT_ID)
 
-vectorstore_ids = assistant.tool_resources["file_search"]["vector_store_ids"]
+# Acessar vector store via atributo (forma correta na versão 1.70+)
+vectorstore_ids = assistant.tool_resources.file_search.vector_store_ids
 
 if not vectorstore_ids:
     print("❌ Nenhum vector store associado ao assistente.")
@@ -24,7 +25,7 @@ if not vectorstore_ids:
 
 vectorstore_id = vectorstore_ids[0]
 
-# Listar arquivos no vectorstore
+# Listar arquivos do vector store
 files = openai.beta.vector_stores.files.list(vector_store_id=vectorstore_id)
 
 print(f"\n📌 Assistant: {assistant.name}")
