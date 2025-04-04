@@ -2,9 +2,7 @@
 name = "mario-mcp-personal"
 version = "0.1.0"
 description = "MCP personalizado de Mario Mayerle"
-authors = [
-  { name = "Mario Mayerle", email = "mario@example.com" }
-]
+authors = [{ name = "Mario Mayerle", email = "mario@example.com" }]
 requires-python = ">=3.10"
 dependencies = [
   "flask",
@@ -12,12 +10,8 @@ dependencies = [
   "openai",
   "psutil",
   "requests",
-  "flasgger",
-  "gunicorn"
+  "flasgger"
 ]
 
 [project.scripts]
-mcp = "server:app"  # se for um app Flask com `app = Flask(...)` em server.py
-
-[tool.uv]
-# opcional, usado para builds com uv
+mcp = "server:app"  # ajusta para o nome do seu arquivo (ex: server.py com `app = Flask(...)`)
