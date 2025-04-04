@@ -200,7 +200,11 @@ def get_blogposts():
       200:
         description: Lista completa dos posts do blog
     """
+    with open(os.path.join(base_path, "resources", "blogposts.json"), encoding="utf-8") as f:
+        blog = json.load(f)
     return jsonify(blog)
+
+
 
 @app.route('/resources/blogposts_simple', methods=['GET'])
 def list_blogposts_simple():
@@ -213,6 +217,9 @@ def list_blogposts_simple():
       200:
         description: Lista simplificada de posts recentes
     """
+    with open(os.path.join(base_path, "resources", "blogposts.json"), encoding="utf-8") as f:
+        blog = json.load(f)
+
     simple_posts = [
         {
             "title": post["title"],
@@ -221,6 +228,7 @@ def list_blogposts_simple():
         for post in blog["posts"][:5]
     ]
     return jsonify({"posts": simple_posts})
+
 
 @app.route('/tools/get_project_details', methods=['GET'])
 def get_project_details():
