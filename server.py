@@ -266,25 +266,52 @@ def get_indexed_books():
       200:
         description: Lista de livros presentes no vectorstore
     """
-    from openai import OpenAI
     import os
+    import requests
 
-    client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+    OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
     ASSISTANT_ID = os.getenv("ASSISTANT_ID")
-    assistant = client.beta.assistants.retrieve(ASSISTANT_ID)
-    vectorstore_id = assistant.tool_resources.file_search.vector_store_ids[0]
-    files = client.beta.vector_stores.files.list(vector_store_id=vectorstore_id)
+
+    if not OPENAI_API_KEY or not ASSISTANT_ID:
+        return jsonify({"erro": "Variáveis de ambiente OPENAI_API_KEY ou ASSISTANT_ID não estão configuradas."}), 500
+
+    HEADERS = {
+        "Authorization": f"Bearer {OPENAI_API_KEY}",
+        "OpenAI-Beta": "assistants=v2"
+    }
+
+    # Obter o assistente
+    res = requests.get(f"https://api.openai.com/v1/assistants/{ASSISTANT_ID}", headers=HEADERS)
+    if res.status_code != 200:
+        return jsonify({"erro": "Erro ao buscar assistente", "detalhes": res.text}), 500
+
+    assistant = res.json()
+    vs_ids = assistant.get("tool_resources", {}).get("file_search", {}).get("vector_store_ids", [])
+
+    if not vs_ids:
+        return jsonify({"erro": "Nenhum vector store vinculado ao assistente."}), 404
+
+    vectorstore_id = vs_ids[0]
+
+    # Listar arquivos do vectorstore
+    res = requests.get(f"https://api.openai.com/v1/vector_stores/{vectorstore_id}/files", headers=HEADERS)
+    if res.status_code != 200:
+        return jsonify({"erro": "Erro ao buscar arquivos", "detalhes": res.text}), 500
+
+    files = res.json().get("data", [])
 
     livros = []
-    for f in files.data:
-        file_info = client.files.retrieve(f.id)
+    for f in files:
+        file_id = f["id"]
+        file_info = requests.get(f"https://api.openai.com/v1/files/{file_id}", headers=HEADERS).json()
         livros.append({
-            "id": f.id,
-            "nome": file_info.filename,
-            "status": f.status
+            "id": file_id,
+            "nome": file_info.get("filename", "desconhecido"),
+            "status": f.get("status", "desconhecido")
         })
 
     return jsonify({"livros": livros})
+
 
 
 # --- NOVO ENDPOINT DE STATUS ---
