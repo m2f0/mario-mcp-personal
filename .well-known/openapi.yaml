@@ -2,9 +2,11 @@ openapi: 3.1.0
 info:
   title: Mario Personal MCP API
   version: 1.0.0
-  description: Public API exposing Mario Mayerle's LinkedIn profile, GitHub repositories, and blog posts.
+  description: Public API exposing Mario Mayerle's LinkedIn profile, GitHub repositories, blog posts, and indexed books.
+
 servers:
   - url: https://mcp.mariomayerle.com
+
 paths:
   /resources/livros:
     post:
@@ -23,6 +25,31 @@ paths:
       responses:
         '200':
           description: Response retrieved from Mario's book collection
+
+  /resources/livros_indexados:
+    get:
+      summary: List all books authored by Mario (based on vectorstore)
+      operationId: getIndexedBooks
+      responses:
+        '200':
+          description: List of indexed book titles
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  livros:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        nome:
+                          type: string
+                        status:
+                          type: string
+
   /resources:
     get:
       summary: Retrieve all public data (LinkedIn, GitHub, Blogposts)
@@ -30,6 +57,7 @@ paths:
       responses:
         '200':
           description: Public data successfully retrieved
+
   /resources/linkedin:
     get:
       summary: Retrieve LinkedIn profile data
@@ -37,6 +65,7 @@ paths:
       responses:
         '200':
           description: LinkedIn profile data retrieved successfully
+
   /resources/github:
     get:
       summary: Retrieve GitHub repositories
@@ -44,6 +73,7 @@ paths:
       responses:
         '200':
           description: GitHub repositories retrieved successfully
+
   /resources/blogposts:
     get:
       summary: Retrieve full blog posts
@@ -51,6 +81,7 @@ paths:
       responses:
         '200':
           description: Full blog posts retrieved successfully
+
   /resources/blogposts_simple:
     get:
       summary: Retrieve simplified list of latest blog posts
@@ -58,6 +89,7 @@ paths:
       responses:
         '200':
           description: Simplified blog posts retrieved successfully
+
   /tools/get_project_details:
     get:
       summary: Retrieve details of a specific GitHub repository

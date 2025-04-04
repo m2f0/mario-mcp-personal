@@ -255,6 +255,38 @@ def get_project_details():
             return jsonify(repo)
     return jsonify({"error": "Projeto não encontrado"}), 404
 
+@app.route("/resources/livros_indexados", methods=["GET"])
+def get_indexed_books():
+    """
+    Lista os livros de Mario Mayerle diretamente do vectorstore.
+    ---
+    tags:
+      - Recursos
+    responses:
+      200:
+        description: Lista de livros presentes no vectorstore
+    """
+    from openai import OpenAI
+    import os
+
+    client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+    ASSISTANT_ID = os.getenv("ASSISTANT_ID")
+    assistant = client.beta.assistants.retrieve(ASSISTANT_ID)
+    vectorstore_id = assistant.tool_resources.file_search.vector_store_ids[0]
+    files = client.beta.vector_stores.files.list(vector_store_id=vectorstore_id)
+
+    livros = []
+    for f in files.data:
+        file_info = client.files.retrieve(f.id)
+        livros.append({
+            "id": f.id,
+            "nome": file_info.filename,
+            "status": f.status
+        })
+
+    return jsonify({"livros": livros})
+
+
 # --- NOVO ENDPOINT DE STATUS ---
 
 def check_service_status(url):
