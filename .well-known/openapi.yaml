@@ -106,3 +106,28 @@ paths:
           description: Repository details retrieved successfully
         '404':
           description: Repository not found
+
+  /resources/imagens:
+    get:
+      summary: Retrieve available images of Mario Mayerle
+      operationId: getMarioImages
+      responses:
+        '200':
+          description: List of image metadata and public URLs
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  imagens:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        filename:
+                          type: string
+                        descricao:
+                          type: string
+                        url:
+                          type: string
+

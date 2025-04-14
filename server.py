@@ -11,6 +11,8 @@ import requests
 from datetime import datetime
 from flasgger import Swagger
 from engines.book_qa import query_books
+from flask import Flask, send_from_directory, jsonify
+from tools.mario_images_tool import mario_images_tool
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 app = Flask(__name__)
@@ -357,6 +359,16 @@ def get_status():
 
     return jsonify(status_info)
 # --- FIM DO BLOCO DE STATUS ---
+
+@app.route("/imagens/<path:filename>")
+def servir_imagem(filename):
+    return send_from_directory("static/imagens", filename)
+
+@app.route("/resources/imagens")
+def listar_imagens():
+    return jsonify(mario_images_tool.run(None))
+
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8000)
