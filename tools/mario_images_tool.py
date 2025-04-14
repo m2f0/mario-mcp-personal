@@ -35,7 +35,7 @@ def mario_images_tool_run(_: MarioImagesInput) -> MarioImagesOutput:
 mario_images_tool = Tool(**{
     "name": "mario_images",
     "description": "Retorna imagens públicas de Mario Mayerle com descrição e URL",
-    "inputSchema": MarioImagesInput,
-    "outputSchema": MarioImagesOutput,
+    "input_schema": MarioImagesInput.model_json_schema(),
+    "output_schema": MarioImagesOutput.model_json_schema(),
     "run": mario_images_tool_run
 })
