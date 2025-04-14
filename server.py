@@ -48,6 +48,10 @@ swagger_template = {
 swagger = Swagger(app, config=swagger_config, template=swagger_template)
 
 START_TIME = time.time()
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_DIR = os.path.join(BASE_DIR, "static", "imagens")
+METADATA_FILE = os.path.join(BASE_DIR, "data", "imagens_metadata.json")
+
 
 base_path = os.path.dirname(os.path.abspath(__file__))
 
