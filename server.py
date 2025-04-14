@@ -13,6 +13,7 @@ from flasgger import Swagger
 from engines.book_qa import query_books
 from flask import Flask, send_from_directory, jsonify
 from tools.mario_images_tool import mario_images_tool
+from flask import request, redirect, render_template_string
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 app = Flask(__name__)
@@ -367,6 +368,55 @@ def servir_imagem(filename):
 @app.route("/resources/imagens")
 def listar_imagens():
     return jsonify(mario_images_tool.run(None))
+
+UPLOAD_HTML = """
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload de Imagem - Mario MCP</title>
+</head>
+<body>
+    <h2>Enviar nova imagem</h2>
+    <form action="/upload_imagem" method="post" enctype="multipart/form-data">
+        <label>Imagem:</label><br>
+        <input type="file" name="imagem" accept="image/*" required><br><br>
+        <label>Descrição:</label><br>
+        <input type="text" name="descricao" style="width: 400px;" required><br><br>
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
+"""
+
+@app.route("/upload_imagem", methods=["GET", "POST"])
+def upload_imagem():
+    if request.method == "POST":
+        imagem = request.files.get("imagem")
+        descricao = request.form.get("descricao", "").strip()
+
+        if not imagem or not descricao:
+            return "Imagem e descrição são obrigatórias", 400
+
+        # Salvar imagem
+        save_path = os.path.join(STATIC_DIR, imagem.filename)
+        imagem.save(save_path)
+
+        # Atualizar imagens_metadata.json
+        with open(METADATA_FILE, "r", encoding="utf-8") as f:
+            dados = json.load(f)
+
+        dados.append({
+            "filename": imagem.filename,
+            "descricao": descricao
+        })
+
+        with open(METADATA_FILE, "w", encoding="utf-8") as f:
+            json.dump(dados, f, ensure_ascii=False, indent=2)
+
+        return f"""<p>✅ Imagem <b>{imagem.filename}</b> enviada com sucesso!</p>
+        <p><a href="/upload_imagem">Voltar</a></p>"""
+
+    return render_template_string(UPLOAD_HTML)
 
 
 
