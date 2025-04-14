@@ -20,7 +20,7 @@ class MarioImageItem(BaseModel):
 class MarioImagesOutput(BaseModel):
     imagens: list[MarioImageItem]
 
-# Função da tool
+# Função da Tool
 def mario_images_tool_run(_: MarioImagesInput) -> MarioImagesOutput:
     with open(METADATA_FILE, "r", encoding="utf-8") as f:
         imagens_metadata = json.load(f)
@@ -31,11 +31,11 @@ def mario_images_tool_run(_: MarioImagesInput) -> MarioImagesOutput:
     imagens = [MarioImageItem(**imagem) for imagem in imagens_metadata]
     return MarioImagesOutput(imagens=imagens)
 
-# Tool registrada corretamente
-mario_images_tool = Tool(
-    name="mario_images",
-    description="Retorna imagens públicas de Mario Mayerle com descrição e URL",
-    input_schema=MarioImagesInput,   # 🔴 aqui estava inputSchema (com S maiúsculo)
-    output_schema=MarioImagesOutput,
-    run=mario_images_tool_run
-)
+# Tool registrada com camelCase explícito
+mario_images_tool = Tool(**{
+    "name": "mario_images",
+    "description": "Retorna imagens públicas de Mario Mayerle com descrição e URL",
+    "inputSchema": MarioImagesInput,
+    "outputSchema": MarioImagesOutput,
+    "run": mario_images_tool_run
+})
