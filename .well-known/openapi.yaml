@@ -131,3 +131,30 @@ paths:
                         url:
                           type: string
 
+  /resources/videos:
+    get:
+      summary: List latest YouTube videos from Mario's channel
+      operationId: listYouTubeVideos
+      responses:
+        '200':
+          description: A list of recent video links
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    title:
+                      type: string
+                      description: Video title
+                    url:
+                      type: string
+                      format: uri
+                      description: Full YouTube URL
+                    thumbnail:
+                      type: string
+                      format: uri
+                      description: Thumbnail image URL
+
+

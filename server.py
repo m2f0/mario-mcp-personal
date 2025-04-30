@@ -14,6 +14,7 @@ from engines.book_qa import query_books
 from flask import Flask, send_from_directory, jsonify
 from tools.mario_images_tool import mario_images_tool
 from flask import request, redirect, render_template_string
+from tools.youtube_scraper import buscar_videos_do_canal
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 app = Flask(__name__)
@@ -61,6 +62,14 @@ with open(os.path.join(base_path, "resources", "github.json")) as f:
     github = json.load(f)
 with open(os.path.join(base_path, "resources", "blogposts.json")) as f:
     blog = json.load(f)
+
+
+@app.get("/resources/videos")
+def listar_videos():
+    url = "https://www.youtube.com/@mariomayerle/videos"
+    return buscar_videos_do_canal(url)
+
+
 
 @app.route("/resources/livros", methods=["POST"])
 def livros_query():
