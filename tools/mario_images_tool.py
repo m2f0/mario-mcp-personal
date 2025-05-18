@@ -1,6 +1,6 @@
 import os
 import json
-from mcp import Tool
+# from mcp import Tool
 
 # Caminhos
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))

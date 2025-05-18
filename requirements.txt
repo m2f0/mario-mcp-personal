@@ -4,3 +4,6 @@ gunicorn
 psutil
 flasgger
 
+python-dotenv
+flask-cors
+openai
